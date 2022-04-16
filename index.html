@@ -52,19 +52,19 @@
             <img src="leaf.svg" alt="">
         </div>
         <input type="range" id="range" max="30" min="10" value="10">
-        <script>
-            const arc = document.querySelector("svg path");
-            const temperature = document.querySelector("#temperature");
-            const range = document.querySelector("#range");
-            range.addEventListener('change', (e) => {
-                temperature.textContent = e.target.value;
-
-                const arc_length = arc.getTotalLength();
-                const step = arc_length / (range.max - range.min);
-                const value = (e.target.value - range.min) * step;
-                arc.style.strokeDasharray = `${value} ${arc_length - value}`;
-            })
-        </script>
     </div>
+    <script>
+        const arc = document.querySelector("svg path");
+        const temperature = document.querySelector("#temperature");
+        const range = document.querySelector("#range");
+        range.addEventListener('change', (e) => {
+            temperature.textContent = e.target.value;
+
+            const arc_length = arc.getTotalLength();
+            const step = arc_length / (range.max - range.min);
+            const value = (e.target.value - range.min) * step;
+            arc.style.strokeDasharray = `${value} ${arc_length - value}`;
+        })
+    </script>
 </body>
 </html>
